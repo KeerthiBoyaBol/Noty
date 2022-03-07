@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f3f3f8"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NotesList">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <ImageView
+        android:id="@+id/addNewNote"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ic_oval"
+        android:layout_margin="10dp"
+       />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@id/addNewNote"
+        android:layout_alignTop="@id/addNewNote"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/plus_icon"
+        android:src="@drawable/ic_add" />
+
+
+</RelativeLayout>
