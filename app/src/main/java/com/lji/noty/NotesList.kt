@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.lji.noty.adapters.NodeListAdapter
 import com.lji.noty.databinding.FragmentNotesListBinding
 import com.lji.noty.models.NodeViewModel
+import com.lji.noty.roomdata.NoteviewModel
 
 
 class NotesList : Fragment() {
 
     private lateinit var notesAdapter: NodeListAdapter
-    private val viewModel by viewModels<NodeViewModel>()
+    private val viewModel by viewModels<NoteviewModel>()
     private var _binding: FragmentNotesListBinding? = null
 
     private val binding get() = _binding!!
@@ -34,8 +35,8 @@ class NotesList : Fragment() {
     }
 
     private fun observeNotes() {
-        viewModel.allNotes.observe(viewLifecycleOwner) { allNotes ->
-            notesAdapter.items = allNotes
+        viewModel.readNotes.observe(viewLifecycleOwner) {
+            notesAdapter.items = it
         }
     }
 

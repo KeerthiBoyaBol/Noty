@@ -3,8 +3,9 @@ package com.lji.noty.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.lji.noty.Note
+
 import com.lji.noty.databinding.NotesRecyclerlistRowBinding
+import com.lji.noty.roomdata.Note
 
 class NodeListAdapter :
     RecyclerView.Adapter<NodeListAdapter.MyViewHolder>() {
@@ -28,7 +29,7 @@ class NodeListAdapter :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.title.text = items[position].title
-            it.noteDesc.text = items[position].description
+            it.noteDesc.text = items[position].noteDesc
         }
     }
 

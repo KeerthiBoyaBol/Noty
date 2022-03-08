@@ -1,6 +1,7 @@
 package com.lji.noty
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,11 +10,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lji.noty.databinding.FragmentUploadNewNoteBinding
 import com.lji.noty.models.NodeViewModel
+import com.lji.noty.roomdata.Note
+import com.lji.noty.roomdata.NoteviewModel
 
 
 class UploadNewNote : Fragment() {
 
-    private val viewModel by viewModels<NodeViewModel>()
+    private val viewModel by viewModels<NoteviewModel>()
 
     private var _binding: FragmentUploadNewNoteBinding? = null
 
@@ -35,15 +38,14 @@ class UploadNewNote : Fragment() {
     private fun addNote() {
         binding.apply {
             saveNote.setOnClickListener {
-                if (title.text.toString()
-                        .isEmpty() || noteDesc.text.toString().isEmpty()
-                ) {
+                val title = title.text.toString()
+                val noteDesc = noteDesc.text.toString()
+                if (title.isEmpty() || noteDesc.isEmpty()) {
                   // TODO add a Snack bar
+
                 } else {
-                    viewModel.addNote(
-                        title.text.toString(),
-                        noteDesc.text.toString()
-                    )
+                    val note = Note(0,title,noteDesc)
+                    viewModel.addNote(note)
                     findNavController().navigate(R.id.notesList)
                 }
 
